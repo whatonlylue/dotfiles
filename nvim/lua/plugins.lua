@@ -49,10 +49,10 @@ return {
               experimental = { ghost_text = true }, -- shows faint inline suggestion
             }
         end,
-        
+
     },
 
-    "nvim-treesitter/nvim-treesitter", 
+    "nvim-treesitter/nvim-treesitter",
 
     {
         "windwp/nvim-autopairs",
@@ -61,7 +61,7 @@ return {
             require("nvim-autopairs").setup({})
         end,
     },
-    
+
     {
         "SirVer/ultisnips",
         init = function()
