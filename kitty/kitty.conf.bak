@@ -1,0 +1,15 @@
+
+# Font stuffs
+font_family FiraCode Nerd Font
+font_size 12.5
+disable_ligatures never
+
+
+tab_bar_style hidden
+
+
+
+# Colors / Backgroud
+background_opacity 0.95
+include rose-pine-moon.conf
+
