@@ -1,15 +1,22 @@
 
 # Font stuffs
-font_family FiraCode Nerd Font
+font_family FiraCode Nerd Font Mono
+bold_font auto
+italic_font auto
+bold_italic_font auto
+symbol_map U+E000-U+F1AF0 FiraCode Nerd Font
 font_size 12.5
 disable_ligatures never
 
-
-tab_bar_style hidden
-
-
+# Visual
+window_padding_width 7
+hide_window_decorations titlebar-only
 
 # Colors / Backgroud
-background_opacity 0.95
-include rose-pine-moon.conf
+background_opacity 0.92
+# Rosé Pine Moon
+include current-theme.conf
 
+# Funny
+enable_audio_bell yes
+bell_path "/Users/lukewharton/.config/sounds/vine-boom.mp3"
