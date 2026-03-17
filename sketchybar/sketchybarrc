@@ -13,13 +13,13 @@ FONTALT="Helvetica"
 s --bar height=24        \
                  blur_radius=0   \
                  position=bottom  \
-                 y_offset=0       \
-                 margin=0         \
-                 corner_radius=0  \
+                 y_offset=5       \
+                 margin=5         \
+                 corner_radius=5  \
                  padding_left=10  \
                  padding_right=10 \
                  shadow=off        \
-                 border_width=0        \
+                 border_width=1        \
                  border_color=$FGALT        \
                  color=$BAR
 
