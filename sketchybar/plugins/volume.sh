@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WIDTH=100
+WIDTH=0
 
 volume_change() {
   source "$CONFIG_DIR/icons.sh"

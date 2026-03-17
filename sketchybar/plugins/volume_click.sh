@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WIDTH=100
+WIDTH=0
 
 detail_on() {
   sketchybar --animate tanh 30 --set volume slider.width=$WIDTH

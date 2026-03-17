@@ -2,15 +2,6 @@
 
 volume_slider=(
   script="$PLUGIN_DIR/volume.sh"
-  updates=on
-  label.drawing=off
-  icon.drawing=off
-  slider.highlight_color=$BLUE
-  slider.background.height=5
-  slider.background.corner_radius=3
-  slider.background.color=$BACKGROUND_2
-  slider.knob=􀀁
-  slider.knob.drawing=on
 )
 
 volume_icon=(

@@ -38,8 +38,8 @@ bar=(
   y_offset=-3
   margin=-1
   topmost=window
-  color=$BACKGROUND_1
-  border_color=$BACKGROUND_2
+  color=$TRANSPARENT
+  border_color=$TRANSPARENT
 )
 
 sketchybar --bar "${bar[@]}"
