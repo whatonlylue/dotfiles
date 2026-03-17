@@ -20,8 +20,8 @@ s --bar height=24        \
                  padding_right=5 \
                  shadow=off        \
                  border_width=1        \
-                 border_color=$FGALT        \
-                 color=$BAR
+                 border_color=$YELLOW        \
+                 color=$BG
 
 # Defaults
 
