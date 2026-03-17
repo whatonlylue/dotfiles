@@ -20,6 +20,8 @@ return {
 
     'ThePrimeagen/vim-be-good',
 
+    'ellisonleao/gruvbox.nvim',
+
     "lewis6991/gitsigns.nvim",
 
     "neovim/nvim-lspconfig",
@@ -51,9 +53,16 @@ return {
         end,
 
     },
-
-    "nvim-treesitter/nvim-treesitter",
-
+    {
+        "nvim-treesitter/nvim-treesitter",
+        config = function()
+            require("nvim-treesitter.configs").setup({
+                ensure_installed = {"elixir"},
+                highlight = { enable = true, },
+                indent = { enable = true },
+            })
+        end
+    },
     {
         "windwp/nvim-autopairs",
         event = "InsertEnter",

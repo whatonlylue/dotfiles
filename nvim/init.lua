@@ -21,7 +21,8 @@ vim.api.nvim_create_autocmd("VimResized", {
 
 require("mason").setup()
 
-
+vim.o.background = "dark"
+vim.cmd([[colorscheme gruvbox]])
 
 -- Merge LSP capabilities with nvim‑cmp (skip this if you don’t use cmp)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
