@@ -1,21 +1,9 @@
 return {
-	-- the colorscheme
 	{
-		"rose-pine/neovim",
-		name = "rose-pine",
-		lazy = false, -- always loads
-		priority = 1000, -- loads before any others
-		config = function()
-			--load the colorscheme here
-
-			vim.cmd("colorscheme rose-pine-moon")
-		end,
-	},
-    {
         "williamboman/mason.nvim",
         opts = { ui = { border = "rounded"}},
     },
-    
+
     "williamboman/mason-lspconfig.nvim",
 
     'ThePrimeagen/vim-be-good',

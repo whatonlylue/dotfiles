@@ -41,7 +41,7 @@ require("mason-lspconfig").setup {
           capabilities = capabilities,
           on_attach = function(_, bufnr)     -- optional keymaps
             if vim.lsp.inlay_hint and vim.lsp.inlay_hint.enable then
-                vim.lsp.inlay_hint.enable(true, {bufnr = bufnr}) 
+                vim.lsp.inlay_hint.enable(true, {bufnr = bufnr})
         end
             local k = vim.keymap.set
             k("n", "K",     vim.lsp.buf.hover,        { buffer = bufnr })
