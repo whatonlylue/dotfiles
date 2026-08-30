@@ -39,13 +39,8 @@ return {
     },
 
     {
-        "SirVer/ultisnips",
-        init = function()
-            vim.g.UltiSnipsExpandTrigger = "<tab>"
-            vim.g.UltiSnipsJumpForwardTrigger = "<tab>"
-            vim.g.UltiSnipsJumpBackwardTrigger = "<s-tab>"
-            vim.g.UltiSnipsSnippetDirectories = {"UltiSnips"}
-        end,
+        "L3MON4D3/LuaSnip",
+        version = "v2.*"
     },
 
     {
@@ -73,6 +68,7 @@ return {
             indent = {enabled = true},
             picker = {enabled = true},
 	        gitbrowse = {enabled = true},
+            gh = {enabled = true},
             statuscolumn = {
                 enabled = true,
                 left = {"mark", "sign"},
@@ -91,6 +87,7 @@ return {
             { "<leader><space>", function() Snacks.picker.smart() end, desc = "fuzzy find"},
             { "<leader>sM", function() Snacks.picker.man() end, desc = "man pages"},
             { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer"},
+            { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "Github pull requests (open)"}
         }
     }
 }
