@@ -1,62 +1,41 @@
 return {
-	{
-        "williamboman/mason.nvim",
-        opts = { ui = { border = "rounded"}},
-    },
+    "williamboman/mason.nvim",
 
     "williamboman/mason-lspconfig.nvim",
 
-    'ThePrimeagen/vim-be-good',
-
     'ellisonleao/gruvbox.nvim',
-
-    "lewis6991/gitsigns.nvim",
 
     "neovim/nvim-lspconfig",
 
-    {
-        "hrsh7th/nvim-cmp",
-        dependencies = {
-            "hrsh7th/cmp-nvim-lsp",
-            "L3MON4D3/LuaSnip",
-        },
-        config = function()
-            local cmp = require("cmp")
-            cmp.setup {
-              snippet = {
-                expand = function(args) require("luasnip").lsp_expand(args.body) end,
-              },
-              mapping = cmp.mapping.preset.insert {
-                ["<Tab>"]   = cmp.mapping.confirm { select = true },
-                ["<C-Space>"] = cmp.mapping.complete {},
-              },
-              sources = {
-                { name = "nvim_lsp" },   -- ← brings in the type‑aware suggestions
-                { name = "luasnip" },
-                { name = "buffer" },
-                { name = "path" },
-              },
-              experimental = { ghost_text = true }, -- shows faint inline suggestion
-            }
-        end,
+     "sphamba/smear-cursor.nvim",
 
+     "lewis6991/gitsigns.nvim",
+
+    {
+        'saghen/blink.cmp',
+
+        dependencies = { 'rafamadriz/friendly-snippets' },
+
+        version = '1.*',
+
+        --@module 'blink.cmp'
+        --@type blink.cmp.Config
+        opts = {
+            keymap = { preset = 'default' },
+            sources = {
+                default = { 'lsp', 'path', 'snippets', 'buffer' },
+            },
+            fuzzy = {
+                implementation = 'prefer_rust_with_warning'
+            }
+        },
+        opts_extend = { "sources.default" }
     },
+
     {
         "nvim-treesitter/nvim-treesitter",
-        config = function()
-            require("nvim-treesitter.configs").setup({
-                ensure_installed = {"elixir"},
-                highlight = { enable = true, },
-                indent = { enable = true },
-            })
-        end
-    },
-    {
-        "windwp/nvim-autopairs",
-        event = "InsertEnter",
-        config = function()
-            require("nvim-autopairs").setup({})
-        end,
+        branch = "main",
+        build = ":TSUpdate",
     },
 
     {
@@ -70,25 +49,48 @@ return {
     },
 
     {
-        "lervag/vimtex",
-        ft = {'tex'},
-        init = function()
-            vim.g.vimtex_view_method = "skim"
-            vim.g.vimtex_view_skim_sync = 1
-            vim.g.vimtex_quickfix_mode = 0
-            vim.g.vimtex_compiler_method = "latexmk"
-            vim.g.vimtex_compiler_latexmk = {
-                build_dir = 'build',
-                continuous = 1,
-                callback = 1,
-                executable = 'latexmk',
-                options = {
-                    "-shell-escape",
-                    "-synctex=1",
-                    "-interaction=nonstopmode",
-                },
-            }
-        end,
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons'}
     },
-    
+
+    {
+        'windwp/nvim-autopairs',
+        event = "InsertEnter",
+        config = true
+    },
+
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        opts = {
+            dashboard = {enabled = true},
+            bigfile = {enabled = true},
+            debug = {enabled = true},
+            notifier = {enabled = true},
+            explorer = {enabled = true},
+            quickfile = {enabled = true},
+            indent = {enabled = true},
+            picker = {enabled = true},
+	        gitbrowse = {enabled = true},
+            statuscolumn = {
+                enabled = true,
+                left = {"mark", "sign"},
+                right = {"git", "fold"},
+                git = {
+                    patterns = {"GitSign", "MiniDiffSign"}
+                }
+
+            },
+            words = {enabled = true},
+        },
+        keys = {
+            { "<leader>z", function() Snacks.debug.backtrace() end, desc = "Toggle debug"},
+            { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification history"},
+            { "<leader>gb", function() Snacks.gitbrowse() end, desc = "Git Branches"},
+            { "<leader><space>", function() Snacks.picker.smart() end, desc = "fuzzy find"},
+            { "<leader>sM", function() Snacks.picker.man() end, desc = "man pages"},
+            { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer"},
+        }
+    }
 }
