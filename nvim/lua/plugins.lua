@@ -7,21 +7,37 @@ return {
 
     "neovim/nvim-lspconfig",
 
-     "sphamba/smear-cursor.nvim",
+    "sphamba/smear-cursor.nvim",
 
-     "lewis6991/gitsigns.nvim",
+    "lewis6991/gitsigns.nvim",
+
+    {
+        'nvim-treesitter/nvim-treesitter',
+        lazy = false,
+        build = ':TSUpdate'
+
+    },
 
     {
         'saghen/blink.cmp',
 
-        dependencies = { 'rafamadriz/friendly-snippets' },
+        dependencies = {
+            'rafamadriz/friendly-snippets',
+            'L3MON4D3/LuaSnip'
+        },
 
         version = '1.*',
 
         --@module 'blink.cmp'
         --@type blink.cmp.Config
         opts = {
-            keymap = { preset = 'default' },
+            keymap = { preset = 'super-tab' },
+            snippets = { preset = 'luasnip' },
+            completion = {
+                ghost_text = {
+                    enabled = true,
+                },
+            },
             sources = {
                 default = { 'lsp', 'path', 'snippets', 'buffer' },
             },
@@ -33,14 +49,9 @@ return {
     },
 
     {
-        "nvim-treesitter/nvim-treesitter",
-        branch = "main",
-        build = ":TSUpdate",
-    },
-
-    {
         "L3MON4D3/LuaSnip",
-        version = "v2.*"
+        version = "v2.*",
+        build = "make install_jsregexp"
     },
 
     {
@@ -67,7 +78,7 @@ return {
             quickfile = {enabled = true},
             indent = {enabled = true},
             picker = {enabled = true},
-	        gitbrowse = {enabled = true},
+            gitbrowse = {enabled = true},
             gh = {enabled = true},
             statuscolumn = {
                 enabled = true,
